@@ -4,14 +4,14 @@ namespace TendoPay\LazadaApi;
 
 class LazadaApi
 {
-    private string $clientId;
-    private string $clientSecret;
+    private string $appKey;
+    private string $appSecret;
     private string $callbackUrl;
 
     public function __construct()
     {
-        $this->clientId = getenv('TP_LAZADA_CLIENT_ID');
-        $this->clientSecret = getenv('TP_LAZADA_CLIENT_SECRET');
+        $this->appKey = getenv('TP_LAZADA_APP_KEY');
+        $this->appSecret = getenv('TP_LAZADA_APP_SECRET');
         $this->callbackUrl = getenv('TP_LAZADA_CALLBACK_URL');
     }
 }
