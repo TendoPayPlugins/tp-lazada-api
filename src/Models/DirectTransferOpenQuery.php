@@ -19,7 +19,7 @@ class DirectTransferOpenQuery implements RequestModelInterface
     public function toArray(): array
     {
         return [
-            'transfer_order_id' => $this->transferOrderId
+            'transfer_order_id' => $this->transferOrderId,
         ];
     }
 

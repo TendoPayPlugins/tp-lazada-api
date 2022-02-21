@@ -27,7 +27,7 @@ class DirectTransferOpenRequest implements RequestModelInterface
         return [
             'transfer_order_id' => $this->transferOrderId,
             'amount' => $this->amount,
-            'account_number' => $this->accountNumber
+            'account_number' => $this->accountNumber,
         ];
     }
 

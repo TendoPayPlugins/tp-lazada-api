@@ -33,7 +33,7 @@ class ApiCallable
             'app_key' => $this->appKey,
             'timestamp' => $this->getTimestamp(),
             'sign_method' => Constants::SIGN_METHOD,
-            'sign' => $this->getSign('a', 'x')
+            'sign' => $this->getSign('a', 'x'),
         ];
     }
 
