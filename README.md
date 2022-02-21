@@ -1,4 +1,4 @@
-# :package_description
+# TP Lazada API
 
 TendoPay Lazada API integraiton
 ## Installation
@@ -12,8 +12,9 @@ composer require tendopay/tp-lazada-api
 ## Usage
 
 ```php
-$skeleton = new VendorName\Skeleton();
-echo $skeleton->echoPhrase('Hello, VendorName!');
+$requestModel = new RequestModelInterface($data);
+$lazadaApi = new TendoPay\LazadaApi();
+$response = $lazadaApi->call($requestModel);
 ```
 
 ## Testing
