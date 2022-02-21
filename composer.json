@@ -1,21 +1,21 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "tendopay/tp-lazada-api",
+    "description": "TP Lazada API Integration",
     "keywords": [
-        ":vendor_name",
-        ":package_slug"
+        "tendopay",
+        "tp-lazada-api"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/CandyDigitalCo/tp-lazada-api",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Szymon Sterczewski",
+            "email": "szymon@tendopay.ph",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.0"
+        "php": "^6.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
@@ -24,12 +24,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src"
+            "TendoPay\\LazadaApi\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "TendoPay\\LazadaApi\\Tests\\": "tests"
         }
     },
     "scripts": {
