@@ -14,7 +14,6 @@ class GiftCodeCreateOpenRequest implements RequestModelInterface
     private int $startTimestamp;
     private int $endTimestamp;
 
-
     public function __construct(
         string $transferOrderId,
         string $amount,
@@ -36,7 +35,7 @@ class GiftCodeCreateOpenRequest implements RequestModelInterface
             'amount' => $this->amount,
             'quantity' => $this->quantity,
             'start_timestamp' => $this->startTimestamp,
-            'end_timestamp' => $this->endTimestamp
+            'end_timestamp' => $this->endTimestamp,
         ];
     }
 
