@@ -27,4 +27,9 @@ class DirectTransferOpenQuery implements RequestModelInterface
     {
         return Constants::API_WALLET_DIRECT_TRANSFER_OPEN_QUERY;
     }
+
+    public function getRequestType(): string
+    {
+        return Constants::REQUEST_TYPE_POST;
+    }
 }

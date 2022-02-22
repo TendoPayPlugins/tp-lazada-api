@@ -6,7 +6,7 @@ namespace TendoPay\LazadaApi\Traits;
 
 use TendoPay\LazadaApi\Constants;
 use TendoPay\LazadaApi\Models\RequestModelInterface;
-
+use GuzzleHttp\Client;
 /**
  * Api endpoints
  */
@@ -14,11 +14,18 @@ trait ApiCallable
 {
     public function call(RequestModelInterface $requestModel)
     {
-        $baseUrl = Constants::PH_BASE_URL;
         $route = $requestModel->getRoute();
+        $requestUrl = Constants::PH_BASE_URL . $route;
+        $requestType = $requestModel->getRequestType();
         $params = $requestModel->toArray();
         $requestData = $this->prepareRequestGlobalParams($route, $params);
-        var_dump($requestData);
+
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request($requestType, $requestUrl, [
+            'form_params' => $requestData
+        ]);
+
+        var_dump($response);
         exit;
         //// TODO
         // CALL API

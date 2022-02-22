@@ -20,4 +20,8 @@ final class Constants
     public const API_WALLET_DIRECT_TRANSFER_OPEN_REQUEST = '/wallet/transfer/request';
     public const API_WALLET_GIFT_CODE_CREATE_OPEN_REQUEST = '/wallet/giftcode/request';
     public const API_WALLET_GIFT_CODE_CREATE_OPEN_QUERY = '/wallet/giftcode/query';
+
+    # Request types
+    public const REQUEST_TYPE_POST = 'POST';
+    public const REQUEST_TYPE_GET = 'GET';
 }

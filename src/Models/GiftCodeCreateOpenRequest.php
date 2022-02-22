@@ -27,4 +27,9 @@ class GiftCodeCreateOpenQuery implements RequestModelInterface
     {
         return Constants::API_WALLET_GIFT_CODE_CREATE_OPEN_REQUEST;
     }
+
+    public function getRequestType(): string
+    {
+        return Constants::REQUEST_TYPE_POST;
+    }
 }
