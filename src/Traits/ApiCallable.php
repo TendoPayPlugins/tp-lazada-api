@@ -10,7 +10,7 @@ use TendoPay\LazadaApi\Models\RequestModelInterface;
 /**
  * Api endpoints
  */
-class ApiCallable
+trait ApiCallable
 {
     public function call(RequestModelInterface $requestModel)
     {
@@ -19,7 +19,7 @@ class ApiCallable
         $data = $requestModel->toArray();
         $commonData = $this->prepareRequestGlobalParams();
         $requestData = array_merge($data, $commonData);
-
+        var_dump($requestData);exit;
         //// TODO
         // CALL API
         // RESPONSE
@@ -39,11 +39,26 @@ class ApiCallable
 
     private function getTimestamp(): string
     {
-        return '';
+        return microtime();
     }
 
     private function getSign(string $data, string $key): string
     {
         return hash_hmac(Constants::SIGN_METHOD, $data, $key);
     }
+
+    private function generateSign($apiName,$params)
+	{
+		ksort($params);
+
+		$stringToBeSigned = '';
+		$stringToBeSigned .= $apiName;
+		foreach ($params as $k => $v)
+		{
+			$stringToBeSigned .= "$k$v";
+		}
+		unset($k, $v);
+
+		return strtoupper($this->getSign($stringToBeSigned,$this->secretKey));
+	}
 }

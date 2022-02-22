@@ -2,8 +2,12 @@
 
 namespace TendoPay\LazadaApi;
 
+use TendoPay\LazadaApi\Traits\ApiCallable;
+
 class LazadaApi
 {
+    use ApiCallable;
+
     private string $appKey;
     private string $appSecret;
     private string $callbackUrl;
