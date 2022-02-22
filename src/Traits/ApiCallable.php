@@ -18,7 +18,6 @@ trait ApiCallable
         $route = $requestModel->getRoute();
         $params = $requestModel->toArray();
         $requestData = $this->prepareRequestGlobalParams($route, $params);
-
         var_dump($requestData);
         exit;
         //// TODO
@@ -59,6 +58,7 @@ trait ApiCallable
     private function generateSign(string $apiName, array $params): string
     {
         ksort($params);
+
         $stringToBeSigned = '';
         $stringToBeSigned .= $apiName;
         foreach ($params as $k => $v) {
