@@ -47,6 +47,7 @@ trait ApiCallable
     private function getTimestamp(): string
     {
         list($msec, $sec) = explode(' ', microtime());
+
         return $sec . '000';
     }
 
