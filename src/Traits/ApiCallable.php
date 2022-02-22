@@ -16,10 +16,11 @@ trait ApiCallable
     {
         $baseUrl = Constants::PH_BASE_URL;
         $route = $requestModel->getRoute();
-        $data = $requestModel->toArray();
-        $commonData = $this->prepareRequestGlobalParams();
-        $requestData = array_merge($data, $commonData);
-        var_dump($requestData);exit;
+        $params = $requestModel->toArray();
+        $requestData = $this->prepareRequestGlobalParams($route, $params);
+
+        var_dump($requestData);
+        exit;
         //// TODO
         // CALL API
         // RESPONSE
@@ -27,19 +28,27 @@ trait ApiCallable
         // LOGS
     }
 
-    private function prepareRequestGlobalParams(): array
+    private function prepareRequestGlobalParams(string $apiRoute, array $queryParams): array
     {
-        return [
-            'app_key' => $this->appKey,
-            'timestamp' => $this->getTimestamp(),
-            'sign_method' => Constants::SIGN_METHOD,
-            'sign' => $this->getSign('a', 'x'),
-        ];
+        $params = array_merge(
+            [
+                'app_key' => $this->appKey,
+                'timestamp' => $this->getTimestamp(),
+                'sign_method' => Constants::SIGN_METHOD,
+            ],
+            $queryParams
+        );
+
+        return array_merge(
+            $params,
+            ['sign' => $this->generateSign($apiRoute, $params)],
+        );
     }
 
     private function getTimestamp(): string
     {
-        return microtime();
+        list($msec, $sec) = explode(' ', microtime());
+        return $sec . '000';
     }
 
     private function getSign(string $data, string $key): string
@@ -47,18 +56,16 @@ trait ApiCallable
         return hash_hmac(Constants::SIGN_METHOD, $data, $key);
     }
 
-    private function generateSign($apiName,$params)
-	{
-		ksort($params);
+    private function generateSign(string $apiName, array $params): string
+    {
+        ksort($params);
+        $stringToBeSigned = '';
+        $stringToBeSigned .= $apiName;
+        foreach ($params as $k => $v) {
+            $stringToBeSigned .= "$k$v";
+        }
+        unset($k, $v);
 
-		$stringToBeSigned = '';
-		$stringToBeSigned .= $apiName;
-		foreach ($params as $k => $v)
-		{
-			$stringToBeSigned .= "$k$v";
-		}
-		unset($k, $v);
-
-		return strtoupper($this->getSign($stringToBeSigned,$this->secretKey));
-	}
+        return strtoupper($this->getSign($stringToBeSigned, $this->secretKey));
+    }
 }
