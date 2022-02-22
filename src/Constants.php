@@ -29,7 +29,9 @@ final class Constants
 
     # Response codes
     public const INCOMPLETE_SIGNATURE = 'IncompleteSignature';
+    public const APP_KEY_INVALID = 'APP_KEY_INVALID';
 
     # Exception mapping
     public const INCOMPLETE_SIGNATURE_EXCEPTION = IncompleteSignatureException::class;
+    public const APP_KEY_INVALID_EXCEPTION = App
 }

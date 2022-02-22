@@ -6,6 +6,9 @@ namespace TendoPay\LazadaApi\Traits;
 
 use TendoPay\LazadaApi\Constants;
 use TendoPay\LazadaApi\Models\RequestModelInterface;
+use GuzzleHttp\Client;
+use TendoPay\LazadaApi\Exceptions\AppKeyInvalidException;
+use TendoPay\LazadaApi\Exceptions\InvalidCredentialsException;
 
 /**
  * Api endpoints
@@ -19,13 +22,28 @@ trait ApiCallable
         $requestType = $requestModel->getRequestType();
         $params = $requestModel->toArray();
         $requestData = $this->prepareRequestGlobalParams($route, $params);
-
+        // var_dump($this->appKey, $this->appSecret);exit;
         $client = new \GuzzleHttp\Client();
         $response = $client->request($requestType, $requestUrl, [
-            'form_params' => $requestData,
+            'json' => $requestData
         ]);
 
-        var_dump($response);
+        if (!$response->getBody()) {
+            throw new AppKeyInvalidException('Invalid credentials', 422);
+        }
+         
+        
+        $response = $response->getBody();
+
+        $contents = json_decode($response->getContents(), true);
+
+        if($contents['code'] === Constants::APP_KEY_INVALID) {
+            throw new 
+        }
+            var_dump($contents);
+            exit;
+        
+        var_dump($response);exit;
         exit;
         //// TODO
         // CALL API
@@ -72,6 +90,7 @@ trait ApiCallable
         foreach ($params as $k => $v) {
             $stringToBeSigned .= "$k$v";
         }
+
         unset($k, $v);
 
         return strtoupper($this->getSign($stringToBeSigned, $this->appSecret));
