@@ -66,6 +66,6 @@ trait ApiCallable
         }
         unset($k, $v);
 
-        return strtoupper($this->getSign($stringToBeSigned, $this->secretKey));
+        return strtoupper($this->getSign($stringToBeSigned, $this->appSecret));
     }
 }
