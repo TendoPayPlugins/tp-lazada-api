@@ -9,9 +9,9 @@ namespace TendoPay\LazadaApi\Models;
  */
 interface RequestModelInterface
 {
-    function getRoute(): string;
+    public function getRoute(): string;
 
-    function getRequestType(): string;
+    public function getRequestType(): string;
 
-    function toArray(): array;
+    public function toArray(): array;
 }
