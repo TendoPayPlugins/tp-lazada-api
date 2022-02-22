@@ -19,7 +19,8 @@ trait ApiCallable
         $data = $requestModel->toArray();
         $commonData = $this->prepareRequestGlobalParams();
         $requestData = array_merge($data, $commonData);
-        var_dump($requestData);exit;
+        var_dump($requestData);
+        exit;
         //// TODO
         // CALL API
         // RESPONSE
@@ -47,18 +48,17 @@ trait ApiCallable
         return hash_hmac(Constants::SIGN_METHOD, $data, $key);
     }
 
-    private function generateSign($apiName,$params)
-	{
-		ksort($params);
+    private function generateSign($apiName, $params)
+    {
+        ksort($params);
 
-		$stringToBeSigned = '';
-		$stringToBeSigned .= $apiName;
-		foreach ($params as $k => $v)
-		{
-			$stringToBeSigned .= "$k$v";
-		}
-		unset($k, $v);
+        $stringToBeSigned = '';
+        $stringToBeSigned .= $apiName;
+        foreach ($params as $k => $v) {
+            $stringToBeSigned .= "$k$v";
+        }
+        unset($k, $v);
 
-		return strtoupper($this->getSign($stringToBeSigned,$this->secretKey));
-	}
+        return strtoupper($this->getSign($stringToBeSigned, $this->secretKey));
+    }
 }
