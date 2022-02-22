@@ -6,7 +6,7 @@ namespace TendoPay\LazadaApi\Traits;
 
 use TendoPay\LazadaApi\Constants;
 use TendoPay\LazadaApi\Models\RequestModelInterface;
-use GuzzleHttp\Client;
+
 /**
  * Api endpoints
  */
@@ -22,7 +22,7 @@ trait ApiCallable
 
         $client = new \GuzzleHttp\Client();
         $response = $client->request($requestType, $requestUrl, [
-            'form_params' => $requestData
+            'form_params' => $requestData,
         ]);
 
         var_dump($response);
