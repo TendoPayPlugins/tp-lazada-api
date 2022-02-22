@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace TendoPay\LazadaApi;
 
+use TendoPay\LazadaApi\Exceptions\IncompleteSignatureException;
+
 final class Constants
 {
     # General
@@ -24,4 +26,10 @@ final class Constants
     # Request types
     public const REQUEST_TYPE_POST = 'POST';
     public const REQUEST_TYPE_GET = 'GET';
+
+    # Response codes
+    public const INCOMPLETE_SIGNATURE = 'IncompleteSignature';
+
+    # Exception mapping
+    public const INCOMPLETE_SIGNATURE_EXCEPTION = IncompleteSignatureException::class;
 }
