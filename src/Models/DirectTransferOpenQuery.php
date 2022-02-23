@@ -6,7 +6,7 @@ namespace TendoPay\LazadaApi\Models;
 
 use TendoPay\LazadaApi\Constants;
 
-class DirectTransferOpenQuery implements RequestModelInterface
+final class DirectTransferOpenQuery implements RequestModelInterface
 {
     private array $errors = [
         Constants::TRANSFER_ERROR_MSG_RESPONSED_FAILED,

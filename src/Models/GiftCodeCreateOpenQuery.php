@@ -6,7 +6,7 @@ namespace TendoPay\LazadaApi\Models;
 
 use TendoPay\LazadaApi\Constants;
 
-class GiftCodeCreateOpenQuery implements RequestModelInterface
+final class GiftCodeCreateOpenQuery implements RequestModelInterface
 {
     private string $transferOrderId;
 

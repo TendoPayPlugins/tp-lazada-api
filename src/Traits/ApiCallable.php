@@ -16,8 +16,7 @@ trait ApiCallable
         $route = $requestModel->getRoute();
         $requestUrl = Constants::PH_BASE_URL . $route;
         $requestType = $requestModel->getRequestType();
-        $params = $requestModel->toArray();
-        $requestData = $this->prepareRequestGlobalParams($route, $params);
+        $requestData = $this->prepareRequestGlobalParams($route, $requestModel->toArray());
 
         # Init client and call the API
         try {
@@ -26,7 +25,7 @@ trait ApiCallable
                 'json' => $requestData,
             ]);
 
-            if (! $response->getBody()) {
+            if (!$response->getBody()) {
                 throw new Exception('Invalid response', 500);
             }
 

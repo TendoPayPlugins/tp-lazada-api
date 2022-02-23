@@ -6,7 +6,7 @@ namespace TendoPay\LazadaApi\Models;
 
 use TendoPay\LazadaApi\Constants;
 
-class GiftCodeCreateOpenRequest implements RequestModelInterface
+final class GiftCodeCreateOpenRequest implements RequestModelInterface
 {
     private array $errors = [
         Constants::OPEN_API_TIMESTAMP_INVALID,

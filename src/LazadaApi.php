@@ -4,7 +4,7 @@ namespace TendoPay\LazadaApi;
 
 use TendoPay\LazadaApi\Traits\ApiCallable;
 
-class LazadaApi
+final class LazadaApi
 {
     use ApiCallable;
 

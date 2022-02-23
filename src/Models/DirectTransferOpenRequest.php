@@ -6,7 +6,7 @@ namespace TendoPay\LazadaApi\Models;
 
 use TendoPay\LazadaApi\Constants;
 
-class DirectTransferOpenRequest implements RequestModelInterface
+final class DirectTransferOpenRequest implements RequestModelInterface
 {
     private array $errors = [
         Constants::OPEN_DIRECT_TRANSFER_LOCK_CONFLICT,
