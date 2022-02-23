@@ -50,5 +50,4 @@ final class Constants
     public const BATCH_CREATE_ERROR = 'BATCH_CREATE_ERROR';
     public const BALANCE_ACCOUNT_NOT_ENOUGH = 'BALANCE_ACCOUNT_NOT_ENOUGH';
     public const GIFT_CODE_QUERY_EMPTY = 'GIFT_CODE_QUERY_EMPTY';
-    public const NO_RESPONSE = '0';
 }
