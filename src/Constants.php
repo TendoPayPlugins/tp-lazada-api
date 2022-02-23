@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TendoPay\LazadaApi;
 
+use TendoPay\LazadaApi\Exceptions\AppKeyInvalidException;
 use TendoPay\LazadaApi\Exceptions\IncompleteSignatureException;
 
 final class Constants
@@ -33,5 +34,5 @@ final class Constants
 
     # Exception mapping
     public const INCOMPLETE_SIGNATURE_EXCEPTION = IncompleteSignatureException::class;
-    public const APP_KEY_INVALID_EXCEPTION = App
+    public const APP_KEY_INVALID_EXCEPTION = AppKeyInvalidException::class;
 }
