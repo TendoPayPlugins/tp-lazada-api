@@ -29,7 +29,6 @@ class GiftCodeCreateOpenRequest implements RequestModelInterface
     private int $startTimestamp;
     private int $endTimestamp;
 
-
     public function __construct(
         string $amount,
         int $quantity,
