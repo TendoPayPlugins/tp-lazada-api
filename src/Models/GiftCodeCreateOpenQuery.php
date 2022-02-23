@@ -21,7 +21,7 @@ class GiftCodeCreateOpenQuery implements RequestModelInterface
         Constants::USER_IS_NOT_LOGGED_IN,
         Constants::APP_KEY_INVALID,
         Constants::TRANSFER_ERROR_TRANSFER_ORDER_ID_INVALID,
-        Constants::GIFT_CODE_QUERY_EMPTY
+        Constants::GIFT_CODE_QUERY_EMPTY,
     ];
 
     public function __construct(
