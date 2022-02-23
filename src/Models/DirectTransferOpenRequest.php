@@ -25,7 +25,7 @@ class DirectTransferOpenRequest implements RequestModelInterface
         Constants::OPEN_API_CALL_EXCEED_LIMIT,
         Constants::BIZ_DEGRADATION_ERROR,
         Constants::OPEN_API_TIMESTAMP_INVALID,
-        Constants::TRANSFER_ERROR_MSG_WALLET_INACTIVATED
+        Constants::TRANSFER_ERROR_MSG_WALLET_INACTIVATED,
     ];
 
     private string $transferOrderId;

@@ -20,7 +20,7 @@ class GiftCodeCreateOpenRequest implements RequestModelInterface
         Constants::TRANSFER_ERROR_MSG_QUANTITY_INVALID,
         Constants::GIFT_CODE_LOCK_CONFLICT,
         Constants::BATCH_CREATE_ERROR,
-        Constants::BALANCE_ACCOUNT_NOT_ENOUGH
+        Constants::BALANCE_ACCOUNT_NOT_ENOUGH,
     ];
 
     private string $transferOrderId;

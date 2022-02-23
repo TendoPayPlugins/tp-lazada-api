@@ -16,7 +16,7 @@ class DirectTransferOpenQuery implements RequestModelInterface
         Constants::APP_KEY_INVALID,
         Constants::USER_IS_NOT_LOGGED_IN,
         Constants::PROCEED_TRANSFER_EXCEPTION,
-        Constants::OPEN_API_CALL_EXCEED_LIMIT
+        Constants::OPEN_API_CALL_EXCEED_LIMIT,
     ];
 
     private string $transferOrderId;
