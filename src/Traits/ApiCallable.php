@@ -31,19 +31,21 @@ trait ApiCallable
         if (!$response->getBody()) {
             throw new AppKeyInvalidException('Invalid credentials', 422);
         }
-         
-        
+
+
         $response = $response->getBody();
 
         $contents = json_decode($response->getContents(), true);
 
-        if($contents['code'] === Constants::APP_KEY_INVALID) {
-            throw new 
+        if ($contents['code'] === Constants::APP_KEY_INVALID) {
+            throw new AppKeyInvalidException('Invalid APP Key', 500);
         }
-            var_dump($contents);
-            exit;
-        
-        var_dump($response);exit;
+
+        var_dump($contents);
+        exit;
+
+        var_dump($response);
+        exit;
         exit;
         //// TODO
         // CALL API
