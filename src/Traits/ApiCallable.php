@@ -25,7 +25,7 @@ trait ApiCallable
                 'json' => $requestData,
             ]);
 
-            if (!$response->getBody()) {
+            if (! $response->getBody()) {
                 throw new Exception('Invalid response', 500);
             }
 
