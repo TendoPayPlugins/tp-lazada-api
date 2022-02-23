@@ -6,6 +6,6 @@ namespace TendoPay\LazadaApi\Exceptions;
 
 use Exception;
 
-class IncompleteSignatureException extends Exception {
-
+class IncompleteSignatureException extends Exception
+{
 }
