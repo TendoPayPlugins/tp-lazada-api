@@ -6,6 +6,6 @@ namespace TendoPay\LazadaApi\Exceptions;
 
 use Exception;
 
-class AppKeyInvalidException extends Exception {
-
+class AppKeyInvalidException extends Exception
+{
 }
