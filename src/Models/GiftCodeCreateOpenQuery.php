@@ -14,6 +14,16 @@ class GiftCodeCreateOpenQuery implements RequestModelInterface
     private int $startTimestamp;
     private int $endTimestamp;
 
+    private array $errors = [
+        Constants::GIFT_CODE_LOCK_CONFLICT,
+        Constants::OPEN_API_CALL_EXCEED_LIMIT,
+        Constants::PROCEED_TRANSFER_EXCEPTION,
+        Constants::USER_IS_NOT_LOGGED_IN,
+        Constants::APP_KEY_INVALID,
+        Constants::TRANSFER_ERROR_TRANSFER_ORDER_ID_INVALID,
+        Constants::GIFT_CODE_QUERY_EMPTY
+    ];
+
     public function __construct(
         string $transferOrderId,
         string $amount,
@@ -47,5 +57,10 @@ class GiftCodeCreateOpenQuery implements RequestModelInterface
     public function getRequestType(): string
     {
         return Constants::REQUEST_TYPE_POST;
+    }
+
+    public function isResponseCodeError(string $code): bool
+    {
+        return in_array($code, $this->errors);
     }
 }

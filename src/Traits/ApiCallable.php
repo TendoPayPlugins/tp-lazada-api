@@ -9,9 +9,6 @@ use TendoPay\LazadaApi\Constants;
 use TendoPay\LazadaApi\Exceptions\AppKeyInvalidException;
 use TendoPay\LazadaApi\Models\RequestModelInterface;
 
-/**
- * Api endpoints
- */
 trait ApiCallable
 {
     public function call(RequestModelInterface $requestModel)
@@ -34,27 +31,17 @@ trait ApiCallable
                 throw new Exception('Invalid response', 500);
             }
 
-            $requestModel->isCode
             $response = $response->getBody();
             $contents = json_decode($response->getContents(), true);
 
-            if ($contents['code'] === Constants::APP_KEY_INVALID) {
-                throw new AppKeyInvalidException('Invalid APP Key', 500);
+            if ($requestModel->isResponseCodeError($contents['code'])) {
+                throw new Exception($contents['message'], 500);
             }
+
+            return $contents;
         } catch (Exception $e) {
+            throw new Exception('Failed to call Lazada API: ' . $e->getMessage(), $e->getCode());
         }
-
-        var_dump($contents);
-        exit;
-
-        var_dump($response);
-        exit;
-        exit;
-        //// TODO
-        // CALL API
-        // RESPONSE
-        // EXCEPTION
-        // LOGS
     }
 
     private function prepareRequestGlobalParams(string $apiRoute, array $queryParams): array
