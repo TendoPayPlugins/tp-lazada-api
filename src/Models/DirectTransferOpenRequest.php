@@ -8,6 +8,26 @@ use TendoPay\LazadaApi\Constants;
 
 class DirectTransferOpenRequest implements RequestModelInterface
 {
+    private array $errors = [
+        Constants::OPEN_DIRECT_TRANSFER_LOCK_CONFLICT,
+        Constants::TRANSFER_ERROR_MSG_RESPONSED_FAILED,
+        Constants::TRANSFER_ERROR_MSG_UNKNOWN_FAILED,
+        Constants::TRANSFER_ERROR_MSG_USER_NOT_FOUND,
+        Constants::TRANSFER_VALUE_UNMATCHED,
+        Constants::TRANSFER_USER_UNMATCHED,
+        Constants::TRANSFER_ERROR_ACCOUNT_NUMBER_INVALID,
+        Constants::OPEN_DIRECT_TRANSFER_INTERNAL_FAIL,
+        Constants::TRANSFER_ERROR_TRANSFER_ORDER_ID_INVALID,
+        Constants::TRANSFER_ERROR_MSG_AMOUNT_INVALID,
+        Constants::APP_KEY_INVALID,
+        Constants::USER_IS_NOT_LOGGED_IN,
+        Constants::PROCEED_TRANSFER_EXCEPTION,
+        Constants::OPEN_API_CALL_EXCEED_LIMIT,
+        Constants::BIZ_DEGRADATION_ERROR,
+        Constants::OPEN_API_TIMESTAMP_INVALID,
+        Constants::TRANSFER_ERROR_MSG_WALLET_INACTIVATED
+    ];
+
     private string $transferOrderId;
     private string $amount;
     private string $accountNumber;
@@ -39,5 +59,10 @@ class DirectTransferOpenRequest implements RequestModelInterface
     public function getRequestType(): string
     {
         return Constants::REQUEST_TYPE_POST;
+    }
+
+    public function isResponseCodeError(string $code): bool
+    {
+        return in_array($code, $this->errors);
     }
 }

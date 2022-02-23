@@ -14,4 +14,6 @@ interface RequestModelInterface
     public function getRequestType(): string;
 
     public function toArray(): array;
+
+    public function isResponseCodeError(string $code): bool;
 }

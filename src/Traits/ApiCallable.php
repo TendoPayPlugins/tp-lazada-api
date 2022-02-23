@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TendoPay\LazadaApi\Traits;
 
+use Exception;
 use TendoPay\LazadaApi\Constants;
 use TendoPay\LazadaApi\Exceptions\AppKeyInvalidException;
 use TendoPay\LazadaApi\Models\RequestModelInterface;
@@ -15,28 +16,32 @@ trait ApiCallable
 {
     public function call(RequestModelInterface $requestModel)
     {
+        # Colect data
         $route = $requestModel->getRoute();
         $requestUrl = Constants::PH_BASE_URL . $route;
         $requestType = $requestModel->getRequestType();
         $params = $requestModel->toArray();
         $requestData = $this->prepareRequestGlobalParams($route, $params);
-        // var_dump($this->appKey, $this->appSecret);exit;
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request($requestType, $requestUrl, [
-            'json' => $requestData,
-        ]);
 
-        if (! $response->getBody()) {
-            throw new AppKeyInvalidException('Invalid credentials', 422);
-        }
+        # Init client and call the API
+        try {
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request($requestType, $requestUrl, [
+                'json' => $requestData,
+            ]);
 
+            if (!$response->getBody()) {
+                throw new Exception('Invalid response', 500);
+            }
 
-        $response = $response->getBody();
+            $requestModel->isCode
+            $response = $response->getBody();
+            $contents = json_decode($response->getContents(), true);
 
-        $contents = json_decode($response->getContents(), true);
-
-        if ($contents['code'] === Constants::APP_KEY_INVALID) {
-            throw new AppKeyInvalidException('Invalid APP Key', 500);
+            if ($contents['code'] === Constants::APP_KEY_INVALID) {
+                throw new AppKeyInvalidException('Invalid APP Key', 500);
+            }
+        } catch (Exception $e) {
         }
 
         var_dump($contents);
