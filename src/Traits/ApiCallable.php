@@ -6,7 +6,6 @@ namespace TendoPay\LazadaApi\Traits;
 
 use Exception;
 use TendoPay\LazadaApi\Constants;
-use TendoPay\LazadaApi\Exceptions\AppKeyInvalidException;
 use TendoPay\LazadaApi\Models\RequestModelInterface;
 
 trait ApiCallable
@@ -27,7 +26,7 @@ trait ApiCallable
                 'json' => $requestData,
             ]);
 
-            if (!$response->getBody()) {
+            if (! $response->getBody()) {
                 throw new Exception('Invalid response', 500);
             }
 
