@@ -5,9 +5,23 @@ TendoPay Lazada API integraiton
 
 You can install the package via composer:
 
+add object in "repoisitories" section of "composer.json" file.
+```bash
+"repositories": [
+    ...
+    {
+        "type": "git",
+        "url": "https://github.com/CandyDigitalCo/tp-lazada-api.git"
+    }
+],
+```
+
+and then run in console:
 ```bash
 composer require tendopay/tp-lazada-api
 ```
+
+You probably will need github token. See https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token for reference.
 
 ## Usage
 
