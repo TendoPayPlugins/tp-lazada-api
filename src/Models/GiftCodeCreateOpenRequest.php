@@ -23,18 +23,35 @@ class GiftCodeCreateOpenRequest implements RequestModelInterface
         Constants::BALANCE_ACCOUNT_NOT_ENOUGH,
     ];
 
+    private string $amount;
+    private int $quantity;
     private string $transferOrderId;
+    private int $startTimestamp;
+    private int $endTimestamp;
+
 
     public function __construct(
-        string $transferOrderId
+        string $amount,
+        int $quantity,
+        string $transferOrderId,
+        int $startTimestamp,
+        int $endTimestamp
     ) {
+        $this->amount = $amount;
+        $this->quantity = $quantity;
         $this->transferOrderId = $transferOrderId;
+        $this->startTimestamp = $startTimestamp;
+        $this->endTimestamp = $endTimestamp;
     }
 
     public function toArray(): array
     {
         return [
             'transfer_order_id' => $this->transferOrderId,
+            'amount' => $this->amount,
+            'quantity' => $this->quantity,
+            'start_timestamp' => $this->startTimestamp,
+            'end_timestamp' => $this->endTimestamp,
         ];
     }
 
