@@ -23,6 +23,13 @@ composer require tendopay/tp-lazada-api
 
 You probably will need github token. See https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token for reference.
 
+
+## ENV variables
+```bash
+TP_LAZADA_APP_KEY=
+TP_LAZADA_APP_SECRET=
+```
+
 ## Usage
 
 Documentation: https://open.lazada.com/doc/api.htm?spm=a2o9m.11193494.0.0.f05d266bx1FwMC#/permission?groupId=54&path=/wallet/transfer/query
