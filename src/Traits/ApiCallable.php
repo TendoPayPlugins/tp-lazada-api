@@ -32,7 +32,7 @@ trait ApiCallable
             $response = $response->getBody();
             $contents = json_decode($response->getContents(), true);
 
-            if ($requestModel->isResponseCodeError($contents['code'])) {
+            if ($contents['code'] !== '0') {
                 throw new Exception($contents['message'], 500);
             }
 
