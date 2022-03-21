@@ -25,7 +25,7 @@ trait ApiCallable
                 'json' => $requestData,
             ]);
 
-            if (!$response->getBody()) {
+            if (! $response->getBody()) {
                 throw new Exception('Invalid response', 500);
             }
 
@@ -90,6 +90,7 @@ trait ApiCallable
     {
         if (in_array($contents['code'], Constants::CUSTOM_EXCEPTIONS)) {
             $exceptionClass = Constants::CUSTOM_EXCEPTIONS[$contents['code']];
+
             throw new $exceptionClass($contents['message'], 422);
         }
 
