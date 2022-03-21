@@ -63,6 +63,6 @@ final class Constants
         self::TRANSFER_ERROR_MSG_USER_NOT_FOUND => TransferErrorMsgUserNotFoundException::class,
         self::TRANSFER_USER_UNMATCHED => TransferUserUnmatchedException::class,
         self::TRANSFER_IS_CORPORATE_USER_ERROR => TransferIsCorporateUserException::class,
-        self::TRANSFER_ERROR_MSG_WALLET_INACTIVATED => TransferErrorMsgWalletInactivatedException::class
+        self::TRANSFER_ERROR_MSG_WALLET_INACTIVATED => TransferErrorMsgWalletInactivatedException::class,
     ];
 }
