@@ -58,6 +58,6 @@ final class Constants
     public const CUSTOM_EXCEPTIONS = [
         self::TRANSFER_ERROR_ACCOUNT_NUMBER_INVALID => TransferErrorAccountNumberInvalidException::class,
         self::TRANSFER_ERROR_MSG_USER_NOT_FOUND => TransferErrorMsgUserNotFoundException::class,
-        self::TRANSFER_USER_UNMATCHED => TransferUserUnmatchedException::class
+        self::TRANSFER_USER_UNMATCHED => TransferUserUnmatchedException::class,
     ];
 }
