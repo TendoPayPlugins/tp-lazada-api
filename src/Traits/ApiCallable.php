@@ -25,7 +25,7 @@ trait ApiCallable
                 'json' => $requestData,
             ]);
 
-            if (! $response->getBody()) {
+            if (!$response->getBody()) {
                 throw new Exception('Invalid response', 500);
             }
 
@@ -33,7 +33,7 @@ trait ApiCallable
             $contents = json_decode($response->getContents(), true);
 
             if ($contents['code'] !== '0') {
-                throw new Exception($contents['message'], 500);
+                $this->throwException($contents);
             }
 
             return $contents;
@@ -84,5 +84,15 @@ trait ApiCallable
         unset($k, $v);
 
         return strtoupper($this->getSign($stringToBeSigned, $this->appSecret));
+    }
+
+    private function throwException(array $contents)
+    {
+        if (in_array($contents['code'], Constants::CUSTOM_EXCEPTIONS)) {
+            $exceptionClass = Constants::CUSTOM_EXCEPTIONS[$contents['code']];
+            throw new $exceptionClass($contents['message'], 422);
+        }
+
+        throw new Exception($contents['message'], 500);
     }
 }
