@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace TendoPay\LazadaApi;
 
+use TendoPay\LazadaApi\Exceptions\TransferErrorAccountNumberInvalidException;
+use TendoPay\LazadaApi\Exceptions\TransferErrorMsgUserNotFoundException;
+use TendoPay\LazadaApi\Exceptions\TransferUserUnmatchedException;
+
 final class Constants
 {
     # General
@@ -50,4 +54,10 @@ final class Constants
     public const BATCH_CREATE_ERROR = 'BATCH_CREATE_ERROR';
     public const BALANCE_ACCOUNT_NOT_ENOUGH = 'BALANCE_ACCOUNT_NOT_ENOUGH';
     public const GIFT_CODE_QUERY_EMPTY = 'GIFT_CODE_QUERY_EMPTY';
+
+    public const CUSTOM_EXCEPTIONS = [
+        self::TRANSFER_ERROR_ACCOUNT_NUMBER_INVALID => TransferErrorAccountNumberInvalidException::class,
+        self::TRANSFER_ERROR_MSG_USER_NOT_FOUND => TransferErrorMsgUserNotFoundException::class,
+        self::TRANSFER_USER_UNMATCHED => TransferUserUnmatchedException::class
+    ];
 }
