@@ -6,6 +6,8 @@ namespace TendoPay\LazadaApi;
 
 use TendoPay\LazadaApi\Exceptions\TransferErrorAccountNumberInvalidException;
 use TendoPay\LazadaApi\Exceptions\TransferErrorMsgUserNotFoundException;
+use TendoPay\LazadaApi\Exceptions\TransferErrorMsgWalletInactivatedException;
+use TendoPay\LazadaApi\Exceptions\TransferIsCorporateUserException;
 use TendoPay\LazadaApi\Exceptions\TransferUserUnmatchedException;
 
 final class Constants
@@ -32,6 +34,7 @@ final class Constants
     # Response codes
     public const INCOMPLETE_SIGNATURE = 'IncompleteSignature';
     public const APP_WHITE_IP_LIMIT = 'AppWhiteIpLimit';
+    public const TRANSFER_IS_CORPORATE_USER_ERROR = 'TRANSFER_IS_CORPORATE_USER_ERROR';
     public const APP_KEY_INVALID = 'APP_KEY_INVALID';
     public const TRANSFER_ERROR_MSG_USER_NOT_FOUND = 'TRANSFER_ERROR_MSG_USER_NOT_FOUND';
     public const TRANSFER_ERROR_ACCOUNT_NUMBER_INVALID = 'TRANSFER_ERROR_ACCOUNT_NUMBER_INVALID';
@@ -59,5 +62,7 @@ final class Constants
         self::TRANSFER_ERROR_ACCOUNT_NUMBER_INVALID => TransferErrorAccountNumberInvalidException::class,
         self::TRANSFER_ERROR_MSG_USER_NOT_FOUND => TransferErrorMsgUserNotFoundException::class,
         self::TRANSFER_USER_UNMATCHED => TransferUserUnmatchedException::class,
+        self::TRANSFER_IS_CORPORATE_USER_ERROR => TransferIsCorporateUserException::class,
+        self::TRANSFER_ERROR_MSG_WALLET_INACTIVATED => TransferErrorMsgWalletInactivatedException::class
     ];
 }
