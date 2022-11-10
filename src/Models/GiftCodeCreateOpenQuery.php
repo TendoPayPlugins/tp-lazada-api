@@ -9,6 +9,7 @@ use TendoPay\LazadaApi\Constants;
 final class GiftCodeCreateOpenQuery implements RequestModelInterface
 {
     private string $transferOrderId;
+    private int $page;
 
     private array $errors = [
         Constants::GIFT_CODE_LOCK_CONFLICT,
@@ -21,15 +22,18 @@ final class GiftCodeCreateOpenQuery implements RequestModelInterface
     ];
 
     public function __construct(
-        string $transferOrderId
+        string $transferOrderId,
+        int $page = 1
     ) {
         $this->transferOrderId = $transferOrderId;
+        $this->page = $page;
     }
 
     public function toArray(): array
     {
         return [
             'transfer_order_id' => $this->transferOrderId,
+            'page' => $this->page,
         ];
     }
 
