@@ -11,7 +11,7 @@ add object in "repoisitories" section of "composer.json" file.
     ...
     {
         "type": "git",
-        "url": "https://github.com/CandyDigitalCo/tp-lazada-api.git"
+        "url": "https://github.com/TendoPayPlugins/tp-lazada-api.git"
     }
 ],
 ```
