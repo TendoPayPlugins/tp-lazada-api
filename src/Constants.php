@@ -57,6 +57,7 @@ final class Constants
     public const BATCH_CREATE_ERROR = 'BATCH_CREATE_ERROR';
     public const BALANCE_ACCOUNT_NOT_ENOUGH = 'BALANCE_ACCOUNT_NOT_ENOUGH';
     public const GIFT_CODE_QUERY_EMPTY = 'GIFT_CODE_QUERY_EMPTY';
+    public const TRANSFER_ERROR_NATION_NOT_IN_LIST = 'TRANSFER_ERROR_NATION_NOT_IN_LIST';
 
     public const CUSTOM_EXCEPTIONS = [
         self::TRANSFER_ERROR_ACCOUNT_NUMBER_INVALID => TransferErrorAccountNumberInvalidException::class,
