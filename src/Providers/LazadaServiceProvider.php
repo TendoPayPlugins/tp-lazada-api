@@ -10,7 +10,7 @@ class LazadaServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/lazada.php' => config_path('lazada.php'),
-        ], 'config');
+        ], 'lazada');
 
         $this->mergeConfigFrom(
             __DIR__ . '/../config/lazada.php', 'lazada'
