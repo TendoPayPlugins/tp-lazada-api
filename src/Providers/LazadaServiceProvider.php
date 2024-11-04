@@ -13,7 +13,8 @@ class LazadaServiceProvider extends ServiceProvider
         ], 'config');
 
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/lazada.php', 'lazada'
+            __DIR__ . '/../config/lazada.php',
+            'lazada'
         );
     }
 
