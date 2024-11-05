@@ -23,11 +23,16 @@ composer require tendopay/tp-lazada-api
 
 You probably will need github token. See https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token for reference.
 
+## Publish lazada config
+```bash
+php artisan vendor:publish --tag=lazada
+```
 
-## ENV variables
+## Set ENV variables in your application
 ```bash
 TP_LAZADA_APP_KEY=
 TP_LAZADA_APP_SECRET=
+TP_LAZADA_CALLBACK_URL=
 ```
 
 ## Usage
