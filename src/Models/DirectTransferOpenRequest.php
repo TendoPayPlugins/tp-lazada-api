@@ -31,7 +31,7 @@ final class DirectTransferOpenRequest implements RequestModelInterface
     private string $transferOrderId;
     private string $amount;
     private string $accountNumber;
-    private string $withdrawable;
+    private bool $withdrawable;
 
     public function __construct(
         string $transferOrderId,
@@ -42,7 +42,7 @@ final class DirectTransferOpenRequest implements RequestModelInterface
         $this->transferOrderId = $transferOrderId;
         $this->amount = $amount;
         $this->accountNumber = $accountNumber;
-        $this->withdrawable = $withdrawable ? 'true' : 'false';
+        $this->withdrawable = $withdrawable;
     }
 
     public function toArray(): array
@@ -51,7 +51,7 @@ final class DirectTransferOpenRequest implements RequestModelInterface
             'transfer_order_id' => $this->transferOrderId,
             'amount' => $this->amount,
             'account_number' => $this->accountNumber,
-            'withdrawable' => ($this->withdrawable === 'true' ? 'yes' : 'no'),
+            'withdrawable' => $this->withdrawable,
         ];
     }
 
