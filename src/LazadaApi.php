@@ -14,8 +14,8 @@ final class LazadaApi
 
     public function __construct()
     {
-        $this->appKey = getenv('TP_LAZADA_APP_KEY');
-        $this->appSecret = getenv('TP_LAZADA_APP_SECRET');
-        $this->callbackUrl = getenv('TP_LAZADA_CALLBACK_URL');
+        $this->appKey = config('lazada.api_key');
+        $this->appSecret = config('lazada.api_secret');
+        $this->callbackUrl = config('lazada.callback_url');
     }
 }

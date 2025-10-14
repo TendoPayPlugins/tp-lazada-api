@@ -14,6 +14,13 @@
             "role": "Developer"
         }
     ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TendoPay\\LazadaApi\\Providers\\LazadaServiceProvider"
+            ]
+        }
+    },
     "require": {
         "php": ">=7.4",
         "guzzlehttp/guzzle": "^7.0.1"
