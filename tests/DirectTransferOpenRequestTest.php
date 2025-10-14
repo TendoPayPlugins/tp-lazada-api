@@ -18,13 +18,13 @@ it('checks if toArray method returns proper values', function (array $input, arr
             'transfer_order_id' => '123123123',
             'amount' => '123.45',
             'account_number' => '33333333',
-            'withdrawable' => false,
+            'withdrawable' => 'false',
         ],
         [
             'transfer_order_id' => '123123123',
             'amount' => '123.45',
             'account_number' => '33333333',
-            'withdrawable' => false,
+            'withdrawable' => 'false',
         ],
     ],
     'withdrawable false' => [
@@ -32,13 +32,13 @@ it('checks if toArray method returns proper values', function (array $input, arr
             'transfer_order_id' => '999999',
             'amount' => '13.45',
             'account_number' => '5555555',
-            'withdrawable' => true,
+            'withdrawable' => 'true',
         ],
         [
             'transfer_order_id' => '999999',
             'amount' => '13.45',
             'account_number' => '5555555',
-            'withdrawable' => true,
+            'withdrawable' => 'true',
         ],
     ],
 ]);
