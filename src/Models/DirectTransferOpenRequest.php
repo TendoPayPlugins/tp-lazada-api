@@ -51,7 +51,7 @@ final class DirectTransferOpenRequest implements RequestModelInterface
             'transfer_order_id' => $this->transferOrderId,
             'amount' => $this->amount,
             'account_number' => $this->accountNumber,
-            'withdrawable' => $this->withdrawable,
+            'withdrawable' => $this->withdrawable ? 'true' : 'false',
         ];
     }
 
